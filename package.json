@@ -1,0 +1,26 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Difference Generator Javascript",
+  "main": "index.js",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onlydisco/frontend-project-46.git"
+  },
+  "author": "Mukhin Sergey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onlydisco/frontend-project-46/issues"
+  },
+  "homepage": "https://github.com/onlydisco/frontend-project-46#readme",
+  "dependencies": {
+    "commander": "^9.4.1"
+  }
+}
