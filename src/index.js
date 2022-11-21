@@ -1,10 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-export const genDiff = (filepath1 = 'src/file1.json', filepath2 = 'src/file2.json') => {
+const genDiff = (filepath1, filepath2) => {
   const first = JSON.parse(fs.readFileSync(path.resolve(filepath1)));
   const second = JSON.parse(fs.readFileSync(path.resolve(filepath2)));
-
   const commonKeys = Object.keys({ ...first, ...second }).sort();
   const indent = '  ';
   const lineBreak = '\n';
@@ -32,3 +31,5 @@ export const genDiff = (filepath1 = 'src/file1.json', filepath2 = 'src/file2.jso
   const result = `{\n${diff}}`;
   return result;
 };
+
+export default genDiff;
