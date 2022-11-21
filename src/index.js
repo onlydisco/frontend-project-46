@@ -15,21 +15,13 @@ const genDiff = (filepath1, filepath2) => {
       case !(current in second):
         return acc.concat(indent, `- ${current}: ${first[current]}`, lineBreak);
       case first[current] !== second[current]:
-        return acc.concat(
-          indent,
-          `- ${current}: ${first[current]}`,
-          lineBreak,
-          indent,
-          `+ ${current}: ${second[current]}`,
-          lineBreak,
-        );
+        return acc.concat(indent, `- ${current}: ${first[current]}`, lineBreak, indent, `+ ${current}: ${second[current]}`, lineBreak);
       default:
         return acc.concat(indent, indent, `${current}: ${first[current]}`, lineBreak);
     }
   }, '');
 
-  const result = `{\n${diff}}`;
-  return result;
+  return `{\n${diff}}`;
 };
 
 export default genDiff;
