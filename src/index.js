@@ -1,9 +1,15 @@
-import fs from 'fs';
-import path from 'path';
+import parse from './parsers.js';
+
+export const errorMessage = 'Invalid input!';
 
 const genDiff = (filepath1, filepath2) => {
-  const first = JSON.parse(fs.readFileSync(path.resolve(filepath1)));
-  const second = JSON.parse(fs.readFileSync(path.resolve(filepath2)));
+  const first = parse(filepath1);
+  const second = parse(filepath2);
+
+  if (!first || !second) {
+    return errorMessage;
+  }
+
   const commonKeys = Object.keys({ ...first, ...second }).sort();
   const indent = '  ';
   const lineBreak = '\n';
