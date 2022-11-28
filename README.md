@@ -5,8 +5,8 @@
 
 # GenDiff
 
-### Asciinema gendiff for flat JSON files:
-[![asciicast](https://asciinema.org/a/538546.svg)](https://asciinema.org/a/538546)
+### Asciinema gendiff for JSON files:
+[![asciicast](https://asciinema.org/a/541090.svg)](https://asciinema.org/a/541090)
 
 ### Asciinema gendiff for flat YAML files:
 [![asciicast](https://asciinema.org/a/539796.svg)](https://asciinema.org/a/539796)

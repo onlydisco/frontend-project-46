@@ -2,23 +2,19 @@ import { load } from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
 
-const parse = (filepath) => {
+const parser = (filepath) => {
   const fileData = fs.readFileSync(path.resolve(filepath), 'utf-8');
   const fileExtName = path.extname(filepath).toLowerCase();
 
-  try {
-    switch (fileExtName) {
-      case '.json':
-        return JSON.parse(fileData);
-      case '.yaml':
-      case '.yml':
-        return load(fileData) || {};
-      default:
-        return null;
-    }
-  } catch (e) {
-    return null;
+  switch (fileExtName) {
+    case '.json':
+      return JSON.parse(fileData);
+    case '.yaml':
+    case '.yml':
+      return load(fileData) || {};
+    default:
+      return 'Unknown input format!';
   }
 };
 
-export default parse;
+export default parser;
