@@ -6,7 +6,7 @@ const comparator = (node1, node2) => {
   const difference = commonKeys.map((key) => {
     switch (true) {
       case !(key in node2):
-        return { key, status: 'deleted', value: node1[key] };
+        return { key, status: 'removed', value: node1[key] };
       case !(key in node1):
         return { key, status: 'added', value: node2[key] };
       case ((_.isObject(node1[key]) && _.isObject(node2[key]))):

@@ -11,7 +11,7 @@ const parser = (filepath) => {
       return JSON.parse(fileData);
     case '.yaml':
     case '.yml':
-      return load(fileData) || {};
+      return load(fileData);
     default:
       return 'Unknown input format!';
   }

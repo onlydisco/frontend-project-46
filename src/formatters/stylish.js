@@ -26,10 +26,10 @@ const stylish = (tree) => {
 
     switch (status) {
       case 'origin': {
-        const innerValue = children.flatMap((child) => iter(child, depth + 1));
-        return `{\n${innerValue.join('\n')}\n}`;
+        const result = children.flatMap((child) => iter(child, depth + 1));
+        return `{\n${result.join('\n')}\n}`;
       }
-      case 'deleted': {
+      case 'removed': {
         return `${indent(depth)}- ${key}: ${stringify(value, depth)}`;
       }
       case 'added': {
@@ -44,8 +44,8 @@ const stylish = (tree) => {
         return `${field1}\n${field2}`;
       }
       case 'nested': {
-        const innerValue = children.flatMap((child) => iter(child, depth + 1));
-        return `${indent(depth)}  ${key}: {\n${innerValue.join('\n')}\n${indent(depth)}  }`;
+        const interimResult = children.flatMap((child) => iter(child, depth + 1));
+        return `${indent(depth)}  ${key}: {\n${interimResult.join('\n')}\n${indent(depth)}  }`;
       }
       default:
         return 'Unknown status!';
