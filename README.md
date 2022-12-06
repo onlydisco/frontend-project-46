@@ -5,8 +5,32 @@
 
 # GenDiff
 
+### Descrition:
+A CLI application. Compares two configuration files and shows a difference in three different output fomats: stylish, plain and json.
+ 
+
+### Installation:
+
+    make install
+
+### Usage:
+
+    gendiff [options] <filepath1> <filepath2>
+
+    Arguments:
+      filepath1            Path to file #1
+      filepath2            Path to file #2
+
+    Options:
+      -V, --version        output the version number
+      -f, --format <type>  output format (default: "stylish")
+      -h, --help           display help for command
+
 ### Asciinema gendiff for two files in stylish-format:
-[![asciicast](https://asciinema.org/a/541090.svg)](https://asciinema.org/a/541090)
+[![asciicast](https://asciinema.org/a/542889.svg)](https://asciinema.org/a/542889)
 
 ### Asciinema gendiff for two files in plain-format:
-[![asciicast](https://asciinema.org/a/541708.svg)](https://asciinema.org/a/541708)
+[![asciicast](https://asciinema.org/a/542890.svg)](https://asciinema.org/a/542890)
+
+### Asciinema gendiff for two files in json-format:
+[![asciicast](https://asciinema.org/a/542891.svg)](https://asciinema.org/a/542891)
