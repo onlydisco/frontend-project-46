@@ -1,15 +1,15 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
-// import json from './json.js';
+import json from './json.js';
 
-const formatter = (tree, format) => {
+const formatter = (diffTree, format) => {
   switch (format) {
-    // case 'json':
-    //   return json(tree);
+    case 'json':
+      return json(diffTree);
     case 'plain':
-      return plain(tree);
+      return plain(diffTree);
     case 'stylish':
-      return stylish(tree);
+      return stylish(diffTree);
     default:
       return 'Unknown output format!';
   }

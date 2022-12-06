@@ -16,8 +16,7 @@ test('generate differences for two files in plain-format', () => {
   expect(genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yml'), 'plain')).toEqual(testFile('plain.txt'));
 });
 
-// test('invalid files', () => {
-//   expect(genDiff(getFixturePath('file1.json'), getFixturePath('invalid.ext'))).toBe('Invalid input');
-//   expect(genDiff(getFixturePath('file1.json'), getFixturePath('invalid.json'))).toBe('Invalid input');
-//   expect(genDiff(getFixturePath('file1.yaml'), getFixturePath('invalid.yml'))).toBe('Invalid input');
-// });
+test('generate differences for two files in json-format', () => {
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toEqual(testFile('json.txt'));
+  expect(genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yml'), 'json')).toEqual(testFile('json.txt'));
+});
