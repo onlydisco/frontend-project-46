@@ -12,7 +12,7 @@ rules:
   import/extensions: off
   max-len:
     - 1
-    - 120
+    - 100
     - ignoreComments: true
       ignoreTrailingComments: true
       ignoreUrls: true
