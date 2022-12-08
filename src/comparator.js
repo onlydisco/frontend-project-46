@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const comparator = (node1, node2) => {
-  const commonKeys = Object.keys({ ...node1, ...node2 }).sort();
+  const commonKeys = _.sortBy(Object.keys({ ...node1, ...node2 }));
 
   const difference = commonKeys.map((key) => {
     switch (true) {
