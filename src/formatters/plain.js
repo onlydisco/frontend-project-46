@@ -23,7 +23,9 @@ const plain = (tree) => {
 
     switch (status) {
       case 'origin': {
-        const result = children.map((child) => iter(child, child.key));
+        const result = children
+          .map((child) => iter(child, child.key))
+          .filter((elem) => elem !== null);
         return result.join('\n');
       }
       case 'removed': {
@@ -42,6 +44,7 @@ const plain = (tree) => {
         const interimResult = children
           .map((child) => iter(child, `${propertyPath}.${child.key}`))
           .filter((elem) => elem !== null);
+
         return interimResult.join('\n');
       }
       default:
