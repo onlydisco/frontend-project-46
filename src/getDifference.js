@@ -13,7 +13,7 @@ const comparator = (node1, node2) => {
         return { key, status: 'nested', children: comparator(node1[key], node2[key]) };
       case !(_.isEqual(node1[key], node2[key])):
         return {
-          key, status: 'updated', oldValue: node1[key], newValue: node2[key],
+          key, status: 'updated', value1: node1[key], value2: node2[key],
         };
       default:
         return { key, status: 'saved', value: node1[key] };

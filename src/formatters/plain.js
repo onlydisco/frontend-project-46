@@ -16,8 +16,8 @@ const plain = (tree) => {
     const {
       status,
       value,
-      oldValue,
-      newValue,
+      value1,
+      value2,
       children,
     } = node;
 
@@ -38,7 +38,7 @@ const plain = (tree) => {
         return null;
       }
       case 'updated': {
-        return `Property '${propertyPath}' was updated. From ${defineValue(oldValue)} to ${defineValue(newValue)}`;
+        return `Property '${propertyPath}' was updated. From ${defineValue(value1)} to ${defineValue(value2)}`;
       }
       case 'nested': {
         const interimResult = children
@@ -48,7 +48,7 @@ const plain = (tree) => {
         return interimResult.join('\n');
       }
       default:
-        return 'Unknown status!';
+        throw new Error(`Unknown status: '${status}'!`);
     }
   };
 

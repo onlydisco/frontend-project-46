@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const indent = (depth, space = '  ', count = 2) => space.repeat(depth * count - 1);
+const indent = (depth, space = ' ', count = 4) => space.repeat(depth * count - 2);
 
 const stringify = (data, depth = 1) => {
   if (!_.isObject(data)) {
@@ -19,8 +19,8 @@ const stylish = (tree) => {
       key,
       status,
       value,
-      oldValue,
-      newValue,
+      value1,
+      value2,
       children,
     } = node;
 
@@ -39,8 +39,8 @@ const stylish = (tree) => {
         return `${indent(depth)}  ${key}: ${stringify(value, depth)}`;
       }
       case 'updated': {
-        const field1 = `${indent(depth)}- ${key}: ${stringify(oldValue, depth)}`;
-        const field2 = `${indent(depth)}+ ${key}: ${stringify(newValue, depth)}`;
+        const field1 = `${indent(depth)}- ${key}: ${stringify(value1, depth)}`;
+        const field2 = `${indent(depth)}+ ${key}: ${stringify(value2, depth)}`;
         return `${field1}\n${field2}`;
       }
       case 'nested': {
@@ -48,7 +48,7 @@ const stylish = (tree) => {
         return `${indent(depth)}  ${key}: {\n${interimResult.join('\n')}\n${indent(depth)}  }`;
       }
       default:
-        return 'Unknown status!';
+        throw new Error(`Unknown status: '${status}'!`);
     }
   };
 

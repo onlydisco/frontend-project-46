@@ -11,10 +11,10 @@ publish:
 	npm publish --dry-run
 
 test:
-	NODE_OPTIONS=--experimental-vm-modules npx jest
+	npx jest
 
 test-watch-all:
-	NODE_OPTIONS=--experimental-vm-modules npx jest --watchAll
+	npx jest --watchAll
 
 test-coverage:
-	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
+	npx jest --coverage
