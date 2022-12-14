@@ -6,18 +6,7 @@ import format from './formatters/index.js';
 
 const readFile = (filepath) => fs.readFileSync(path.resolve(filepath), 'utf-8');
 
-const getType = (filepath) => {
-  const extName = path.extname(filepath).toLowerCase();
-  switch (extName) {
-    case '.json':
-      return 'JSON';
-    case '.yml':
-    case '.yaml':
-      return 'YML';
-    default:
-      throw new Error(`Unknown file extension: '${extName}'!`);
-  }
-};
+const getType = (filepath) => path.extname(filepath).slice(1).toLowerCase();
 
 const getData = (filepath) => parse(readFile(filepath), getType(filepath));
 
